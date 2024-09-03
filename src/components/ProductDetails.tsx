@@ -1,6 +1,6 @@
 import plusIcon from "../../images/icon-plus.svg";
 import minusIcon from "../../images/icon-minus.svg";
-import cartIcon from "../../images/icon-cart.svg";
+import cartDarkIcon from "../../images/icon-cart-dark.svg";
 
 export default function ProductDetails() {
   return (
@@ -17,12 +17,12 @@ export default function ProductDetails() {
       </div>
       <div className="flex flex-col xl:flex-row xl:flex-wrap gap-4 font-semibold text-n-v-dark-blue">
         <div className="flex justify-between bg-n-light-grey-blue rounded-lg">
-          <img src={minusIcon} alt="Minus icon" className="w-[36px] object-contain px-3 cursor-pointer" />
+          <img src={minusIcon} alt="Minus icon" className="w-[36px] object-contain px-3 cursor-pointer hover:opacity-70" />
           <p className="self-center px-9 py-4">0</p>
-          <img src={plusIcon} alt="Plus icon" className="w-[36px] object-contain px-3 cursor-pointer" />
+          <img src={plusIcon} alt="Plus icon" className="w-[36px] object-contain px-3 cursor-pointer hover:opacity-70" />
         </div>
-        <div className="flex gap-4 justify-center items-center bg-p-orange py-4 xl:px-20 rounded-lg cursor-pointer max-h-[56px]">
-          <img src={cartIcon} alt="Cart icon" className="h-4 object-contain" />
+        <div className="flex gap-4 justify-center items-center bg-p-orange hover:bg-opacity-70 py-4 xl:px-20 rounded-lg cursor-pointer max-h-[56px]">
+          <img src={cartDarkIcon} alt="Cart icon" className="h-4 object-contain" />
           <p>Add to cart</p>
         </div>
       </div>
