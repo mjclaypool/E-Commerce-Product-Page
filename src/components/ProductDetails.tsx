@@ -1,8 +1,24 @@
+import { useState } from "react";
+
 import plusIcon from "../../images/icon-plus.svg";
 import minusIcon from "../../images/icon-minus.svg";
 import cartDarkIcon from "../../images/icon-cart-dark.svg";
 
 export default function ProductDetails() {
+  const [quantity, setQuantity] = useState(0);
+
+  const iconStyle: string = "w-[36px] object-contain px-3 cursor-pointer hover:opacity-70";
+
+  function handleDecrease() {
+    if (quantity !== 0) {
+      setQuantity(quantity - 1)
+    }
+  }
+
+  function handleIncrease() {
+    setQuantity(quantity + 1)
+  }
+
   return (
     <div className="font-kumbhSans m-6 xl:ml-[72px] xl:mr-12 xl:my-0">
       <p className="font-semibold text-[13px] xl:text-sm text-n-dark-grey-blue tracking-widest mb-4">SNEAKER COMPANY</p>
@@ -17,9 +33,9 @@ export default function ProductDetails() {
       </div>
       <div className="flex flex-col xl:flex-row xl:flex-wrap gap-4 font-semibold text-n-v-dark-blue">
         <div className="flex justify-between bg-n-light-grey-blue rounded-lg">
-          <img src={minusIcon} alt="Minus icon" className="w-[36px] object-contain px-3 cursor-pointer hover:opacity-70" />
-          <p className="self-center px-9 py-4">0</p>
-          <img src={plusIcon} alt="Plus icon" className="w-[36px] object-contain px-3 cursor-pointer hover:opacity-70" />
+          <img src={minusIcon} alt="Minus icon" className={iconStyle} onClick={handleDecrease} />
+          <p className="text-center min-w-[80px] py-4">{quantity}</p>
+          <img src={plusIcon} alt="Plus icon" className={iconStyle} onClick={handleIncrease} />
         </div>
         <div className="flex gap-4 justify-center items-center bg-p-orange hover:bg-opacity-70 py-4 xl:px-20 rounded-lg cursor-pointer max-h-[56px]">
           <img src={cartDarkIcon} alt="Cart icon" className="h-4 object-contain" />
