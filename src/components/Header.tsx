@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import NavModal from "./NavModal.tsx";
 import Cart from "./Cart.tsx";
+import CartContext from "../store/CartContext.tsx";
 
 import logo from "../../images/logo.svg";
 import avatar from "../../images/image-avatar.png";
@@ -11,6 +12,7 @@ import hamburgerIcon from "../../images/icon-menu.svg";
 export default function Header() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [cartIsOpen, setCartIsOpen] = useState(false);
+  const cartCtx = useContext(CartContext);
 
   const navUnderline: string = "absolute -bottom-[50px] group-hover:bg-p-orange h-[4px] w-full";
   const navLinks: string[] = ["Collections", "Men", "Women", "About", "Contact"];
@@ -50,11 +52,16 @@ export default function Header() {
             ))}
           </nav>
         </div>
-        <div className="flex gap-6 xl:gap-12">
+        <div className="relative flex gap-6 xl:gap-12">
           <button className="group" onClick={handleShowCart}>
             <img src={cartIcon} alt="Cart icon" className="group-hover:hidden object-contain cursor-pointer" />
             <img src={cartDarkIcon} alt="Cart icon" className="hidden group-hover:block object-contain cursor-pointer" />
           </button>
+          {cartCtx.quantity > 0 &&
+            <div className="absolute top-0 xl:top-3 left-2 font-bold bg-p-orange text-n-white text-[10px] px-1.5 rounded-full">
+              <p>{cartCtx.quantity}</p>
+            </div>
+          }
           <button>
             <img src={avatar} alt="Avatar image" className="h-7 xl:h-14 object-contain rounded-full border-2 border-transparent hover:border-p-orange cursor-pointer" />
           </button>

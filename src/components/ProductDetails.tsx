@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import CartContext from '../store/CartContext';
 
 import plusIcon from "../../images/icon-plus.svg";
 import minusIcon from "../../images/icon-minus.svg";
 import cartDarkIcon from "../../images/icon-cart-dark.svg";
 
 export default function ProductDetails() {
+  const cartCtx = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
   const iconStyle: string = "w-[36px] object-contain px-3 cursor-pointer hover:opacity-70";
@@ -17,6 +19,10 @@ export default function ProductDetails() {
 
   function handleIncrease() {
     setQuantity(quantity + 1)
+  }
+
+  function handleAddToCart() {
+    cartCtx.updateQuantity(quantity);
   }
 
   return (
@@ -37,10 +43,14 @@ export default function ProductDetails() {
           <p className="text-center min-w-[80px] py-4">{quantity}</p>
           <img src={plusIcon} alt="Plus icon" className={iconStyle} onClick={handleIncrease} />
         </div>
-        <div className="flex gap-4 justify-center items-center bg-p-orange hover:bg-opacity-70 py-4 xl:px-20 rounded-lg cursor-pointer max-h-[56px]">
+        <button
+          type="button"
+          className="flex gap-4 justify-center items-center bg-p-orange hover:bg-opacity-70 py-4 xl:px-20 rounded-lg cursor-pointer max-h-[56px]"
+          onClick={handleAddToCart}
+        >
           <img src={cartDarkIcon} alt="Cart icon" className="h-4 object-contain" />
           <p>Add to cart</p>
-        </div>
+        </button>
       </div>
     </div>
   )
