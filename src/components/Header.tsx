@@ -38,7 +38,7 @@ export default function Header() {
       <header className="flex items-center justify-between font-kumbhSans px-6 py-5 xl:px-40 xl:py-8">
         <div className="flex">
           <div className="flex gap-4 xl:gap-14">
-            <button type="button" onClick={handleShowModal}>
+            <button aria-label="Open mobile navigation menu" type="button" onClick={handleShowModal}>
               <img src={hamburgerIcon} alt="Hamburger menu icon" className="xl:hidden object-contain" />
             </button>
             <img src={logo} alt="Sneakers logo" className="h-5 object-contain" />
@@ -53,7 +53,7 @@ export default function Header() {
           </nav>
         </div>
         <div className="relative flex gap-6 xl:gap-12">
-          <button className="group" onClick={handleShowCart}>
+          <button aria-label="Open shopping cart" className="group" onClick={handleShowCart}>
             <img src={cartIcon} alt="Cart icon" className="group-hover:hidden object-contain cursor-pointer" />
             <img src={cartDarkIcon} alt="Cart icon" className="hidden group-hover:block object-contain cursor-pointer" />
           </button>
@@ -62,7 +62,7 @@ export default function Header() {
               <p>{cartCtx.quantity}</p>
             </div>
           }
-          <button>
+          <button aria-label="Access profile page" type="button">
             <img src={avatar} alt="Avatar image" className="h-7 xl:h-14 object-contain rounded-full border-2 border-transparent hover:border-p-orange cursor-pointer" />
           </button>
         </div>

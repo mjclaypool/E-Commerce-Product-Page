@@ -49,7 +49,7 @@ export default function ProductDetails() {
           onClick={handleAddToCart}
         >
           <img src={cartDarkIcon} alt="Cart icon" className="h-4 object-contain" />
-          <p>Add to cart</p>
+          Add to cart
         </button>
       </div>
     </div>

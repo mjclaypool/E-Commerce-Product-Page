@@ -28,7 +28,7 @@ export default function Cart() {
               <p className="inline-block text-n-dark-grey-blue">$125.00 x <span>{cartCtx.quantity}</span></p>
               <p className="inline-block font-bold text-n-v-dark-blue ml-1">${cartTotal}.00</p>
             </div>
-            <button type="button" onClick={handleEmptyCart}>
+            <button aria-label="Delete cart item" type="button" onClick={handleEmptyCart}>
               <img src={trashIcon} alt="Delete Icon" className="object-contain" />
             </button>
           </div>

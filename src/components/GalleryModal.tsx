@@ -50,7 +50,7 @@ export default function GalleryModal({onDone}: {onDone:any}) {
           <div className="relative flex flex-col w-[520px]">
             <img src={closeIcon} alt="Close menu icon" className="h-[18px] self-end object-contain cursor-pointer mb-3" onClick={handleCloseModal} />
             <div>
-              <button type="button" className={`${navIcon} -left-5`} onClick={handlePrev}>
+              <button aria-label="View previous image" type="button" className={`${navIcon} -left-5`} onClick={handlePrev}>
                 <img src={prevIcon} alt="Previous image icon" className="h-4 object-contain" />
               </button>
               <img
@@ -58,25 +58,25 @@ export default function GalleryModal({onDone}: {onDone:any}) {
                 alt="Product image 1"
                 className="h-[520px] object-contain rounded-lg"
               />
-              <button type="button" className={`${navIcon} -right-5`} onClick={handleNext}>
-                <img src={nextIcon} alt="Previous image icon" className="h-4 object-contain" />
+              <button aria-label="View next image" type="button" className={`${navIcon} -right-5`} onClick={handleNext}>
+                <img src={nextIcon} alt="Next image icon" className="h-4 object-contain" />
               </button>
             </div>
             <div className="flex justify-center gap-4 mt-8">
-              <button type="button" className="relative" onClick={() => handleClick(0)}>
+              <button aria-label="Product image 1" type="button" className="relative" onClick={() => handleClick(0)}>
                 <img src={image1} alt="Product image 1" className="h-[88px] object-contain rounded-lg hover:opacity-50"/>
                 {imageIndex == 0 && <div className={activeImg}/>}
               </button>
-              <button type="button" className="relative" onClick={() => handleClick(1)}>
-                <img src={image2} alt="Product image 1" className="h-[88px] object-contain rounded-lg hover:opacity-50" />
+              <button aria-label="Product image 2" type="button" className="relative" onClick={() => handleClick(1)}>
+                <img src={image2} alt="Product image 2" className="h-[88px] object-contain rounded-lg hover:opacity-50" />
                 {imageIndex == 1 && <div className={activeImg}/>}
               </button>
-              <button type="button" className="relative" onClick={() => handleClick(2)}>
-                <img src={image3} alt="Product image 1" className="h-[88px] object-contain rounded-lg hover:opacity-50" />
+              <button aria-label="Product image 3" type="button" className="relative" onClick={() => handleClick(2)}>
+                <img src={image3} alt="Product image 3" className="h-[88px] object-contain rounded-lg hover:opacity-50" />
                 {imageIndex == 2 && <div className={activeImg}/>}
               </button>
-              <button type="button" className="relative" onClick={() => handleClick(3)}>
-                <img src={image4} alt="Product image 1" className="h-[88px] object-contain rounded-lg hover:opacity-50" />
+              <button aria-label="Product image 4" type="button" className="relative" onClick={() => handleClick(3)}>
+                <img src={image4} alt="Product image 4" className="h-[88px] object-contain rounded-lg hover:opacity-50" />
                 {imageIndex == 3 && <div className={activeImg}/>}
               </button>
             </div>
