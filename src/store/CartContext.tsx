@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { createContext } from "react";
 
-const CartContext = createContext({
+interface CartContextType {
+  quantity: number;
+  updateQuantity: (qty: number) => void;
+  clearQuantity: () => void;
+}
+
+const CartContext = createContext<CartContextType>({
   quantity: 0,
-  updateQuantity: (qty: number) => {},
+  updateQuantity: () => {},
   clearQuantity: () => {},
 });
 
